@@ -56,6 +56,12 @@ WEB_URL_LOAD_TARGETS = [
     "https://generative-ai.web-camp.io/"
 ]
 
+# 問題２：マジックナンバーの修正
+# RAGの設定値
+CHUNK_SIZE = 500
+CHUNK_OVERLAP = 50
+RETRIEVER_K = 5
+
 
 # ==========================================
 # プロンプトテンプレート
