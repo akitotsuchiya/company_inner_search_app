@@ -97,7 +97,9 @@ with right_pane:
             align-items: center;
             padding-left: 2rem;
             padding-right: 2rem;
+            margin-left: calc(22% + 3rem);
             position: relative;
+            min-height: calc(100vh - 4rem);
         }
         .stColumn:last-child > div {
             max-width: 700px;
