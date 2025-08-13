@@ -70,6 +70,13 @@ with left_pane:
             padding: 15px;
             border-radius: 10px;
             margin-right: 10px;
+            min-height: calc(100vh - 8rem);
+            position: fixed;
+            width: 22%;
+            top: 2rem;
+            left: 2rem;
+            bottom: 2rem;
+            overflow-y: auto;
         }
         </style>
         """,
@@ -79,6 +86,29 @@ with left_pane:
     cn.display_select_mode()
 
 with right_pane:
+    # 右ペインの表示幅制限と中央揃え
+    st.markdown(
+        """
+        <style>
+        .stColumn:last-child {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        .stColumn:last-child > div {
+            max-width: 800px;
+            width: 100%;
+        }
+        .stChatMessage {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
     # タイトル表示
     cn.display_app_title()
 
@@ -108,7 +138,39 @@ with right_pane:
 ############################################################
 # 問題３：画面修正 - チャット入力を右ペインに配置
 with right_pane:
+    # チャット入力エリアのスタイル設定
+    st.markdown(
+        """
+        <style>
+        .stChatInput {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 750px;
+            width: calc(100% - 30%);
+            z-index: 999;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .stChatInput > div {
+            max-width: 100%;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+    
+    # チャット入力の前に適度な余白を追加
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # チャット入力ボックス
     chat_message = st.chat_input(ct.CHAT_INPUT_HELPER_TEXT)
+    
+    # チャット入力の後にも余白を追加（画面下にぴったりくっつかないように）
+    st.markdown("<br><br>", unsafe_allow_html=True)
 
 
 ############################################################

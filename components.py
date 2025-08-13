@@ -85,6 +85,7 @@ def display_initial_ai_message():
             """, 
             unsafe_allow_html=True
         )
+        st.markdown("")  # 1行分の空白を追加
         st.warning("具体的に入力したほうが期待通りの回答を得やすいです。", icon=ct.WARNING_ICON)
 
 
