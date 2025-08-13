@@ -68,6 +68,7 @@ with left_pane:
         .stColumn:first-child {
             background-color: #e9ecef;
             padding: 15px;
+            padding-top: 60px;
             border-radius: 10px;
             margin-right: 10px;
             min-height: calc(100vh - 8rem);
@@ -96,14 +97,18 @@ with right_pane:
             align-items: center;
             padding-left: 2rem;
             padding-right: 2rem;
+            position: relative;
         }
         .stColumn:last-child > div {
-            max-width: 800px;
+            max-width: 700px;
             width: 100%;
+            margin-left: auto;
+            margin-right: auto;
         }
         .stChatMessage {
-            max-width: 750px;
+            max-width: 650px;
             margin: 0 auto;
+            position: relative;
         }
         </style>
         """,
@@ -145,12 +150,12 @@ with right_pane:
         .stChatInput {
             position: fixed;
             bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            max-width: 750px;
-            width: calc(100% - 30%);
+            left: calc(25% + 2rem);
+            right: 2rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
             z-index: 999;
-            background-color: white;
             padding: 1rem;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
