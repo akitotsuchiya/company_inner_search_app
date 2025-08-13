@@ -60,6 +60,20 @@ if not "initialized" in st.session_state:
 left_pane, right_pane = st.columns([1, 3])
 
 with left_pane:
+    # 左ペインの背景色設定
+    st.markdown(
+        """
+        <style>
+        .stColumn:first-child {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
     # モード表示（左ペインに配置）
     cn.display_select_mode()
 
