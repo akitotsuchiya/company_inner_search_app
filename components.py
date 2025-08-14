@@ -46,8 +46,8 @@ def display_select_mode():
         """
         <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; border-left: 3px solid #6c757d;">
             <code style="background-color: transparent; color: #495057;">
-            【入力例】<br>
-            社員の育成方針に関するMTG議事録
+            <strong>【入力例】</strong><br>
+            <strong>社員の育成方針に関するMTG議事録</strong>
             </code>
         </div>
         """,
@@ -64,8 +64,8 @@ def display_select_mode():
         """
         <div style="background-color: #f8f9fa; padding: 8px; border-radius: 5px; border-left: 3px solid #6c757d;">
             <code style="background-color: transparent; color: #495057;">
-            【入力例】<br>
-            人事部に所属している従業員情報を一覧化して
+            <strong>【入力例】</strong><br>
+            <strong>人事部に所属している従業員情報を一覧化して</strong>
             </code>
         </div>
         """,
