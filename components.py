@@ -26,7 +26,7 @@ def display_select_mode():
     回答モードのラジオボタンを表示（左ペイン用）
     """
     # 利用目的の見出し
-    st.markdown("**利用目的**")
+    st.markdown("### 利用目的")
     
     # 問題３：画面修正 - 回答モードを選択する用のラジオボタンを表示
     st.session_state.mode = st.radio(
@@ -53,6 +53,9 @@ def display_select_mode():
         """,
         unsafe_allow_html=True
     )
+    
+    # 空行を追加
+    st.markdown("")
     
     # 「社内問い合わせ」の機能説明
     st.markdown("**【「社内問い合わせ」を選択した場合】**")

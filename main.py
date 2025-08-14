@@ -158,7 +158,7 @@ with right_pane:
             margin-left: auto;
             margin-right: auto;
             z-index: 999;
-            padding: 1rem;
+            padding: 0.5rem 1rem;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
