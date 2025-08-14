@@ -126,7 +126,7 @@ def display_conversation_log():
                             page_number = message["content"]["main_page_number"]
                             # PDFファイルの場合はページ番号を表示
                             if file_path.lower().endswith('.pdf'):
-                                st.success(f"{file_path}（ページNo.{page_number}）", icon=icon)
+                                st.success(f"{file_path}（ページNo.{page_number + 1}）", icon=icon)
                             else:
                                 st.success(f"{file_path}", icon=icon)
                         else:
@@ -149,7 +149,7 @@ def display_conversation_log():
                                     page_number = sub_choice["page_number"]
                                     # PDFファイルの場合はページ番号を表示
                                     if file_path.lower().endswith('.pdf'):
-                                        st.info(f"{file_path}（ページNo.{page_number}）", icon=icon)
+                                        st.info(f"{file_path}（ページNo.{page_number + 1}）", icon=icon)
                                     else:
                                         st.info(f"{file_path}", icon=icon)
                                 else:
@@ -193,7 +193,7 @@ def display_search_llm_response(llm_response):
         # ユーザー入力値と最も関連性が高いメインドキュメントのありかを表示
         # ==========================================
         # LLMからのレスポンス（辞書）の「context」属性の中の「0」に、最も関連性が高いドキュメント情報が入っている
-        main_file_path = llm_response["context"][0].metadata["source"]
+        main_file_path = llm_response["context"][0].metadata["source"].replace("\\", "/")
 
         # 補足メッセージの表示
         main_message = "入力内容に関する情報は、以下のファイルに含まれている可能性があります。"
@@ -207,7 +207,7 @@ def display_search_llm_response(llm_response):
             main_page_number = llm_response["context"][0].metadata["page"]
             # PDFファイルの場合はページ番号を表示
             if main_file_path.lower().endswith('.pdf'):
-                st.success(f"{main_file_path}（ページNo.{main_page_number}）", icon=icon)
+                st.success(f"{main_file_path}（ページNo.{main_page_number + 1}）", icon=icon)
             else:
                 st.success(f"{main_file_path}", icon=icon)
         else:
@@ -226,7 +226,7 @@ def display_search_llm_response(llm_response):
         # 「source_documents」内のリストの2番目以降をスライスで参照（2番目以降がなければfor文内の処理は実行されない）
         for document in llm_response["context"][1:]:
             # ドキュメントのファイルパスを取得
-            sub_file_path = document.metadata["source"]
+            sub_file_path = document.metadata["source"].replace("\\", "/")
 
             # メインドキュメントのファイルパスと重複している場合、処理をスキップ（表示しない）
             if sub_file_path == main_file_path:
@@ -268,7 +268,7 @@ def display_search_llm_response(llm_response):
                     page_number = sub_choice["page_number"]
                     # PDFファイルの場合はページ番号を表示
                     if file_path.lower().endswith('.pdf'):
-                        st.info(f"{file_path}（ページNo.{page_number}）", icon=icon)
+                        st.info(f"{file_path}（ページNo.{page_number + 1}）", icon=icon)
                     else:
                         st.info(f"{file_path}", icon=icon)
                 else:
@@ -341,7 +341,7 @@ def display_contact_llm_response(llm_response):
         # LLMが回答生成の参照元として使ったドキュメントの一覧が「context」内のリストの中に入っているため、ループ処理
         for document in llm_response["context"]:
             # ファイルパスを取得
-            file_path = document.metadata["source"]
+            file_path = document.metadata["source"].replace("\\", "/")
             # ファイルパスの重複は除去
             if file_path in file_path_list:
                 continue
@@ -352,7 +352,7 @@ def display_contact_llm_response(llm_response):
                 page_number = document.metadata["page"]
                 # PDFファイルの場合はページ番号を表示
                 if file_path.lower().endswith('.pdf'):
-                    file_info = f"{file_path}（ページNo.{page_number}）"
+                    file_info = f"{file_path}（ページNo.{page_number + 1}）"
                 else:
                     file_info = f"{file_path}"
             else:
