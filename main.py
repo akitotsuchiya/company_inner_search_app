@@ -109,8 +109,9 @@ with right_pane:
         }
         .stChatMessage {
             max-width: 650px;
-            margin: 0 auto;
+            margin: 0;
             position: relative;
+            text-align: left;
         }
         </style>
         """,
