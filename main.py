@@ -67,7 +67,7 @@ with left_pane:
         <style>
         .stColumn:first-child {
             background-color: #e9ecef;
-            padding: 15px;
+            padding: 15px 20px;
             padding-top: 60px;
             border-radius: 10px;
             margin-right: 10px;
@@ -158,7 +158,7 @@ with right_pane:
             margin-left: auto;
             margin-right: auto;
             z-index: 999;
-            padding: 0.5rem 1rem;
+            padding: 0.25rem 1rem;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
